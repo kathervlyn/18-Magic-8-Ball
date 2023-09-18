@@ -1,0 +1,16 @@
+.eightBall {
+    background-color: rgb(169, 123, 106);
+    border: 5px solid black;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+}
+
+.content {
+    margin-left: 145px;
+    margin-top: 175px;
+    font-size: large;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+}

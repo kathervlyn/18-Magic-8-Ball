@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <div>
+        <div></div>
+    </div>
+
+    <script>
+
+        // model
+
+        let answer = [
+            'It is certain', 'It is decidedly so', 'Without a doubt', 'Yes definitely',
+            'Reply hazy, try again', 'Ask again later', 'Better not tell you now', 'Cannot predict now',
+            'Dont count on it', 'My reply is no', 'My sources say no', 'Outlook not so good']
+
+        let memory;
+
+        // view
+
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div class="eightBall">
+                <div class="content" id="Showanswer" onclick="pressForAnswers()"><div id="insideBall">${memory || '"Click for awnsers"'}</div></div>
+             </div>
+            `;
+        }
+
+        // controller
+
+        function pressForAnswers() {                        // Trykk på Kula for svar
+            let random = Math.floor(Math.random() * 12);    // Få tilfeldig ord fra lista
+            if (answer[random] == memory) {                 // Dersom ordet fra lista er det samme om memory (ref linje 38)
+                pressForAnswers();                          // Hent nytt svar
+            }
+            else (memory = answer[random]);                 //linje 34 kjøres på nytt
+            updateView();
+        }
+    </script>
+</body>
+
+</html>
